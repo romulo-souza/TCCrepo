@@ -1,0 +1,2 @@
+C:/Romulo/tcc/Codigos/teste/flutter_cpu/android/app/.cxx/RelWithDebInfo/5o562k12/x86/CMakeFiles/edit_cache.dir
+C:/Romulo/tcc/Codigos/teste/flutter_cpu/android/app/.cxx/RelWithDebInfo/5o562k12/x86/CMakeFiles/rebuild_cache.dir
