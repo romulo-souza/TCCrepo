@@ -1,1 +1,0 @@
- C:\\Romulo\\tcc\\Codigos\\teste\\flutter_cpu\\.dart_tool\\flutter_build\\baf649b32923a1f3bbe988ec10641a5a\\native_assets.json: 
