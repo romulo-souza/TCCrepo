@@ -26,7 +26,7 @@ const RenderComponent = ({ images, resolution }) => {
     Math.floor(Math.random() * iconOptions.length),
   ]);
 
-  // Troca a imagem e os ícones a cada 400ms
+  // Troca a imagem e os ícones a cada 600ms (variar tempo)
   useEffect(() => {
     const interval = setInterval(() => {
       //Avança de forma circular pelas imagens
@@ -34,7 +34,7 @@ const RenderComponent = ({ images, resolution }) => {
       setIconIndexes(
         iconIndexes.map(() => Math.floor(Math.random() * iconOptions.length)),
       );
-    }, 400);
+    }, 600);
 
     return () => clearInterval(interval);
   }, [images]);

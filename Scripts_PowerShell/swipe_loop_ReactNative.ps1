@@ -1,5 +1,5 @@
 # Configurações
-$Package = "com.codigotcc"
+$Package = "com.rncpu"
 $Activity = ".MainActivity"
 
 # Função para iniciar o app (warm start)
