@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Cards Flutter',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.dark(),
         scaffoldBackgroundColor: const Color(0xFF4C4C4F),
       ),
       home: const MyHomePage(),

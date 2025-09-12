@@ -75,7 +75,7 @@ const data = Array.from({ length: 30 }, (_, i) => {
   };
 });
 
-export default function App() {
+const App = () => {
   return (
     <PaperProvider theme={theme}>
       <SafeAreaProvider>
@@ -90,13 +90,13 @@ export default function App() {
               />
             )}
             keyExtractor={item => item.id}
-            numColumns={2} 
+            numColumns={2}
           />
         </SafeAreaView>
       </SafeAreaProvider>
     </PaperProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -106,3 +106,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#4c4c4f',
   },
 });
+
+export default App;

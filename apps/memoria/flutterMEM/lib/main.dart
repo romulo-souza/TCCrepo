@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Cards Flutter',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.dark(),
         scaffoldBackgroundColor: const Color(0xFF4C4C4F),
       ),
       home: const MyHomePage(),
@@ -48,11 +48,7 @@ class MyHomePage extends StatelessWidget {
 
     resolutions.forEach((resolution, images) {
       for (var i = 0; i < images.length; i++) {
-        data.add({
-          'resolution': resolution,
-          'images': images,
-          'index': i,
-        });
+        data.add({'resolution': resolution, 'images': images, 'index': i});
       }
     });
 
