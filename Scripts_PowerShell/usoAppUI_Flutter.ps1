@@ -2,7 +2,7 @@
 $Package = "com.example.flutter_cpu"
 $Activity = ".MainActivity"
 
-# Função para iniciar o app (warm start)
+# Função para iniciar o app (hot start)
 function Start-App {
     Write-Host "Iniciando app..."
     adb shell am start -W "$Package/$Activity"
