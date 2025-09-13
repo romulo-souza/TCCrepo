@@ -6,15 +6,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 //Medir tempo de renderização
 const onRenderCallback = (
   id,
-  phase, // 'mount' ou 'update'
+  phase, // 'mount' (fase de montagem do componente)
   actualDuration, // Tempo gasto renderizando
 ) => {
   if (phase === 'mount') {
-    console.log(
-      `Tempo de renderização (${phase}, ${id}): ${actualDuration.toFixed(
-        2,
-      )} ms`,
-    );
+    console.log(`Tempo de renderização (${phase}, ${id}): ${actualDuration.toFixed(2)} ms`);
   }
 };
 
