@@ -27,12 +27,15 @@ function Swipe-Screen {
 # Iniciar app
 Start-App
 
+# Delay de 3 segundos antes do swipe
+Start-Sleep -Seconds 3
+
 Write-Host "Loop infinito de swipe iniciado. Use Ctrl+C para parar."
 
 # Loop infinito alternando entre descer e subir
 while ($true) {
     # Descer
-    for ($i = 0; $i -lt 6; $i++) {  # ajuste 10 conforme o tamanho da lista
+    for ($i = 0; $i -lt 6; $i++) { 
         Swipe-Screen -Direction "down"
         Start-Sleep -Milliseconds 60
     }

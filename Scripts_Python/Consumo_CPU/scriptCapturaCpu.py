@@ -6,7 +6,7 @@ import os
 # VARIÁVEIS GLOBAIS
 DURATION = 30 # segundos por experimento
 SAMPLE_INTERVAL = 0.5 # intervalo entre coletas (s)
-EXPERIMENTS = 2 # TESTE mudar depois
+EXPERIMENTS = 30 # TESTE mudar depois
 PID = input("Digite o PID do processo: ").strip()
 
 todas_amostras = []
