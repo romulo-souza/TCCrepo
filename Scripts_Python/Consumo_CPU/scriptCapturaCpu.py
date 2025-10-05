@@ -61,7 +61,7 @@ def main():
 
     #transformar os dados coletados em um dataframe e exportar para csv (para análise posterior)
     df = pd.DataFrame(todas_amostras)
-    output_file = "cpu_experimentos.csv"
+    output_file = "cpu_experimento_rn_600ms.csv"
     df.to_csv(output_file, index=False)
     print("CSV salvo em:", os.path.abspath(output_file))
     print(f"Total de amostras coletadas: {len(todas_amostras)}")

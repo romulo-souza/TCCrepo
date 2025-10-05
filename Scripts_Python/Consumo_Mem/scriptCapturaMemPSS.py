@@ -4,16 +4,17 @@ import pandas as pd
 import os
 
 # VARIÁVEIS GLOBAIS
-DURATION = 30  # duração de cada experimento (s)
+DURATION = 30          # duração de cada experimento (s)
 SAMPLE_INTERVAL = 0.5  # intervalo entre coletas (s)
-EXPERIMENTS = 30  # número de experimentos
+EXPERIMENTS = 30       # número de experimentos
 PACKAGE_NAME = input("Digite o nome do pacote do app (ex: com.instagram.android): ").strip()
 
 todas_amostras = []
 
 
 def get_pss_memory(package_name):
-    #Executa o comando adb dumpsys meminfo e retorna o PSS TOTAL em MB
+
+    #Executa adb dumpsys meminfo e retorna o PSS TOTAL em MB
     command = ["adb", "shell", "dumpsys", "meminfo", package_name]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
@@ -22,9 +23,9 @@ def get_pss_memory(package_name):
         if "TOTAL PSS" in line:
             parts = line.split()
             try:
-                pss_memory = float(parts[2]) / 1000  # KB → MB
-                print(parts)  # debug
-                print(f"PSS capturado: {pss_memory:.2f} MB\n")
+                pss_memory = float(parts[2]) / 1024  # KB → MB
+                #print(line) #debug
+                print(f"PSS capturado: {pss_memory:.2f} MB")
                 return pss_memory
             except (IndexError, ValueError):
                 return None
@@ -36,26 +37,22 @@ def main():
         print(f"\nIniciando experimento {exp}...")
         start_time = time.perf_counter()
 
-        while time.perf_counter() - start_time < DURATION:
-            loop_start = time.perf_counter()
-            pss = get_pss_memory(PACKAGE_NAME)
-            elapsed_time = time.perf_counter() - start_time
-            print(elapsed_time)
+        # calcular os tempos de coleta: 0.5, 1.0, 1.5 ... até DURATION
+        sample_times = [round(i * SAMPLE_INTERVAL, 2) for i in range(1, int(DURATION / SAMPLE_INTERVAL) + 1)]
 
+        for target_time in sample_times:
+            # esperar até o momento exato da próxima amostra
+            while (time.perf_counter() - start_time) < target_time:
+                time.sleep(0.01) 
+
+            # coleta memória
+            pss = get_pss_memory(PACKAGE_NAME)
             if pss is not None:
-                # arredonda tempo para múltiplos do SAMPLE_INTERVAL (facilitar agrupamentos)
-                rounded_time = round(elapsed_time / SAMPLE_INTERVAL) * SAMPLE_INTERVAL
                 todas_amostras.append({
                     "experimento": exp,
-                    "tempo": rounded_time,
+                    "tempo": target_time,
                     "consumo_memoria": round(pss, 2)
                 })
-
-            # garante captura em intervalos fixos
-            loop_duration = time.perf_counter() - loop_start
-            remaining_time = SAMPLE_INTERVAL - loop_duration
-            if remaining_time > 0:
-                time.sleep(remaining_time)
 
         amostras_exp = len([a for a in todas_amostras if a["experimento"] == exp])
         print(f"✅ Experimento {exp} finalizado. Amostras coletadas: {amostras_exp}")

@@ -28,34 +28,41 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Pré-carregando imagens como AssetImage
     final resolutions = {
       '640x960': List.generate(
         10,
-        (i) => 'assets/imagens/640x960/img${i + 1}.jpg',
+        (i) => AssetImage('assets/imagens/640x960/img${i + 1}.jpg'),
       ),
       '1280x1920': List.generate(
         10,
-        (i) => 'assets/imagens/1280x1920/img${i + 1}.jpg',
+        (i) => AssetImage('assets/imagens/1280x1920/img${i + 1}.jpg'),
       ),
       '1920x2880': List.generate(
         10,
-        (i) => 'assets/imagens/1920x2880/img${i + 1}.jpg',
+        (i) => AssetImage('assets/imagens/1920x2880/img${i + 1}.jpg'),
       ),
     };
 
     // Criando 30 cards → 10 de cada resolução
-    final data = <Map<String, dynamic>>[];
-
+    final List<Map<String, dynamic>> data = [];
+    int idCounter = 0;
     resolutions.forEach((resolution, images) {
       for (var i = 0; i < images.length; i++) {
-        data.add({'resolution': resolution, 'images': images, 'index': i});
+        data.add({
+          'id': idCounter.toString(),
+          'resolution': resolution,
+          'images': images,
+          'index': i,
+        });
+        idCounter++;
       }
     });
 
     return Scaffold(
       body: SafeArea(
         child: GridView.builder(
-          padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
+          padding: const EdgeInsets.only(top: 20, left: 8, right: 8),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 6.5,
@@ -67,7 +74,7 @@ class MyHomePage extends StatelessWidget {
             final item = data[index];
             return RenderWidget(
               resolution: item['resolution'] as String,
-              images: item['images'] as List<String>,
+              images: item['images'] as List<AssetImage>,
               imageIndex: item['index'] as int,
             );
           },

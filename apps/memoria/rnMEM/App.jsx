@@ -54,7 +54,7 @@ const resolutions = {
   ],
 };
 
-// Gera 30 cards, 10 de cada resolução, cada card recebe seu próprio array
+// Gera 30 cards, 10 de cada resolução
 const data = Array.from({ length: 30 }, (_, i) => {
   if (i < 10)
     return {

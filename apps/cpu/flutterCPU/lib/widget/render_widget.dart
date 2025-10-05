@@ -41,8 +41,8 @@ class RenderWidgetState extends State<RenderWidget> {
     imageIndex = _random.nextInt(widget.images.length);
     iconIndexes = List.generate(3, (_) => _random.nextInt(iconOptions.length));
 
-    // Troca a imagem e os ícones a cada 400ms
-    _timer = Timer.periodic(const Duration(milliseconds: 400), (_) {
+    // Troca a imagem e os ícones a cada 800ms
+    _timer = Timer.periodic(const Duration(milliseconds: 800), (_) {
       setState(() {
         // avança uma posição de forma circular
         imageIndex = (imageIndex + 1) % widget.images.length;

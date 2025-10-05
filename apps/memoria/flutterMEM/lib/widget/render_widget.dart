@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class RenderWidget extends StatelessWidget {
-  final List<String> images;
+  final List<AssetImage> images;
   final String resolution;
-  final int imageIndex; // índice fixo da imagem
+  final int imageIndex;
 
   const RenderWidget({
     super.key,
@@ -32,8 +32,8 @@ class RenderWidget extends StatelessWidget {
           const SizedBox(height: 5),
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.asset(
-              images[imageIndex],
+            child: Image(
+              image: images[imageIndex], // pré-carregado
               width: 155,
               height: 170,
               fit: BoxFit.cover,
