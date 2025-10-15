@@ -7,7 +7,7 @@ import re
 PACKAGE_NAME = "com.rncpu"
 MAIN_ACTIVITY = ".MainActivity"
 TEMPO_EXEC = 30    
-N_EXPERIMENTOS = 3   
+N_EXPERIMENTOS = 30   
 CSV_OUTPUT = "jankyFramesRN.csv"
 
 
