@@ -3,10 +3,10 @@ import csv
 import time
 
 # Configurações
-PACOTE = " com.example.flutter_cpu"  
+PACOTE = "com.example.flutter_cpu"  #com.example.flutter_cpu
 ATIVIDADE = ".MainActivity"  
-NUM_EXPERIMENTOS = 3
-CSV_OUTPUT = "resultados_inicializacao.csv"
+NUM_EXPERIMENTOS = 30
+CSV_OUTPUT = "resultados_rn.csv"
 
 def executar_comando(cmd, delay=2):
     #Executa um comando no terminal e retorna a saída
