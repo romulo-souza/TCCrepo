@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-const IP_API = '192.168.1.191'; // IP (IPv4) do servidor
+const IP_API = '192.168.15.3'; // IP (IPv4) do servidor
 const PORTA = 3000;
 
 const App = () => {

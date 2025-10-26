@@ -6,7 +6,7 @@ void main() {
   runApp(const MyApp());
 }
 
-const String ipAPI = '192.168.1.191';
+const String ipAPI = '192.168.15.3';
 const int porta = 3000;
 
 class MyApp extends StatelessWidget {

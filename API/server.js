@@ -34,6 +34,6 @@ app.get("/data/:tamanhoKB", (req, res) => {
 
 // (0.0.0.0) servidor escuta todas as interfaces do PC, local e rede
 app.listen(port, '0.0.0.0', () => {
-    console.log(`API rodando em http://192.168.1.191:${port}`);
+    console.log(`API rodando em http://192.168.15.3:${port}`);
 });
 
