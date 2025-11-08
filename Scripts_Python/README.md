@@ -1,2 +1,2 @@
 # Scripts Python
-Os Scripts desenvolvidos em Python servem para automatizar a coleta dos dados referentes ao consumo de CPU e de memória do aplicativo. Além disso, esses scripts geram gráficos (uma curva com os valores brutos e outra com a Média Móvel Exponencial (MME) dos valores) que facilitam a análise dos dados.
+Os Scripts desenvolvidos em Python servem para automatizar a coleta dos dados referentes a determinadas métricas de desempenho (Casos de teste 1, 2, 3 e 4). Além disso, também foram desenvolvidos códigos em Python na plataforma Google Colab, para realizar a análise dos dados de cada caso de teste.
